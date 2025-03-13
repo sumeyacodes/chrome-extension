@@ -1,8 +1,10 @@
 # Lazy Prompt Engineering
 
-A Chrome extension I'm building to (hopefully) make **_good_** prompt engineering a bit less tedious, and more effiecient - inspired by the prompt enhancer buttons in Bolt and V0.
+A Chrome extension I'm building to (hopefully) make **_good_** prompt engineering a bit less tedious, and more efficient - inspired by the prompt enhancer buttons in Bolt and V0.
 
-Sometimes, good prompt engineering starts to feel like a skill issue when really, it just takes extra effort I might not always want to put in. So the idea behind this extension is to let me type a basic prompt on any AI chat-based platform and, with a single click, transform it into a more detailed and specific one to generate the best response.
+Sometimes, writing a solid prompt requires detailed instructions that I don't want to type out completely. This often results in unproductive and frustrating conversations because the LLM misinterprets my poorly worded, vague, and incomplete instructions.
+
+So the idea behind this extension is to let me type a basic prompt on any AI chat-based platform and, with a single click, transform it into a more detailed and specific prompt to generate the best response. 
 
 The extension should also allow me to dynamically add which websites the extension can access.
 
