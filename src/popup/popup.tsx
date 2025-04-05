@@ -1,18 +1,29 @@
 import { useState, useEffect } from "react";
-import "./App.css";
-import { Button } from "./components/button";
+import { Button } from "../components/button";
 import {
-  fetchInputText,
   getSavedText,
   setSavedText as storageSetSavedText,
   clearSavedText,
-} from "./utils/chromeUtils";
+  setupRealTimeListener, // Add this import
+} from "../utils/chromeUtils";
+// import Options from "./options/options";
 
-function App() {
+export default function Popup() {
   const [savedText, setSavedTextState] = useState<string>("Loading...");
 
   useEffect(() => {
+    // Initialize with saved text
     getSavedText().then((saved) => setSavedTextState(saved));
+
+    // Setup real-time listener
+    const cleanup = setupRealTimeListener((text) => {
+      const formattedText = text || "No text detected";
+      setSavedTextState(formattedText);
+      storageSetSavedText(formattedText);
+    });
+
+    // Cleanup on unmount
+    return cleanup;
   }, []);
 
   const handleClearText = async () => {
@@ -21,24 +32,6 @@ function App() {
     setTimeout(() => {
       setSavedTextState("No text stored");
     }, 2000);
-  };
-
-  const handleFetchText = async () => {
-    try {
-      const response = await fetchInputText();
-
-      if (response?.error) {
-        setSavedTextState(response.error);
-      } else if (response?.text) {
-        const formatted = response.text;
-        setSavedTextState(formatted);
-        storageSetSavedText(formatted);
-      } else {
-        setSavedTextState("No text found in the current input field");
-      }
-    } catch (error: any) {
-      setSavedTextState(`Error: ${error.message}`);
-    }
   };
 
   return (
@@ -50,11 +43,8 @@ function App() {
       </section>
 
       <section className="gap-2 flex flex-col">
-        <Button onClick={handleFetchText}>Fetch Text</Button>
         <Button onClick={handleClearText}>Clear Storage</Button>
       </section>
     </main>
   );
 }
-
-export default App;

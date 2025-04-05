@@ -22,5 +22,10 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src", "public/content.js", "public/background.js"]
+  "include": [
+    "src",
+    "public/content.js",
+    "public/background.js"
+    // "src/popup/index.html"
+  ]
 }

@@ -3,7 +3,7 @@
   "version": "1.0",
   "name": "Lazy Prompt Bot",
   "description": "For all the lazy prompt engineers out there",
-  "permissions": ["storage", "activeTab", "scripting"],
+  "permissions": ["storage", "activeTab", "scripting", "input"],
   "host_permissions": [
     "https://chatgpt.com/*",
     "https://chat.deepseek.com/a/chat/*",
@@ -14,6 +14,10 @@
   },
   "background": {
     "service_worker": "src/assets/background.js"
+  },
+  "options_ui": {
+    "page": "/src/options/index.html",
+    "open_in_tab": false
   },
   "content_scripts": [
     {
@@ -27,7 +31,7 @@
     }
   ],
   "action": {
-    "default_popup": "index.html",
+    "default_popup": "src/popup/index.html",
     "default_icon": {
       "128": "bot.png"
     }

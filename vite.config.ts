@@ -10,4 +10,12 @@ export default defineConfig({
       manifest: manifest as ManifestV3Export, // Explicit type assertion
     }),
   ],
+  build: {
+    rollupOptions: {
+      input: {
+        popup: "src/popup/index.html",
+        options: "src/options/index.html",
+      },
+    },
+  },
 });
