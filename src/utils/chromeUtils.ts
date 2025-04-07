@@ -37,15 +37,3 @@ export const clearSavedText = async (): Promise<void> => {
     });
   });
 };
-// Add real-time listener support
-export const setupRealTimeListener = (callback: (text: string) => void) => {
-  const handler = (message: any) => {
-    if (message.action === "textUpdate") {
-      callback(message.text);
-    }
-  };
-  chrome.runtime.onMessage.addListener(handler);
-
-  // Return cleanup function
-  return () => chrome.runtime.onMessage.removeListener(handler);
-};

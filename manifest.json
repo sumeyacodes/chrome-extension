@@ -4,10 +4,12 @@
   "name": "Lazy Prompt Bot",
   "description": "For all the lazy prompt engineers out there",
   "permissions": ["storage", "activeTab", "scripting", "input"],
+
   "host_permissions": [
     "https://chatgpt.com/*",
     "https://chat.deepseek.com/a/chat/*",
-    "https://claude.ai/*"
+    "https://claude.ai/*",
+    "http://localhost:5173/*"
   ],
   "icons": {
     "128": "bot.png"
@@ -16,7 +18,7 @@
     "service_worker": "src/assets/background.js"
   },
   "options_ui": {
-    "page": "/src/options/index.html",
+    "page": "src/options/index.html",
     "open_in_tab": false
   },
   "content_scripts": [
