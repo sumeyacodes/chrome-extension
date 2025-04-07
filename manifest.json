@@ -1,15 +1,16 @@
 {
   "manifest_version": 3,
   "version": "1.0",
-  "name": "Lazy Prompt Bot",
+  "name": "Lazy Prompt Engineer Bot",
   "description": "For all the lazy prompt engineers out there",
-  "permissions": ["storage", "activeTab", "scripting", "input"],
+  "permissions": ["storage", "activeTab", "scripting"],
 
   "host_permissions": [
     "https://chatgpt.com/*",
     "https://chat.deepseek.com/a/chat/*",
     "https://claude.ai/*",
-    "http://localhost:5173/*"
+    "https://grok.com/*",
+    "https://www.perplexity.ai/*"
   ],
   "icons": {
     "128": "bot.png"
